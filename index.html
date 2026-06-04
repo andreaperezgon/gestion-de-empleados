@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title> Empleados BASTET TATTOO| Login</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="./src/estilos/login.css">
+</head>
+
+<body>
+
+  <main class="login">
+
+    <section class="login__tarjeta">
+
+      <div class="login__icono"><img src="./src/imagenes/logo.jpg" alt="Logo Empleados bastettattoo"></div>
+
+      <h1>Empleados </h1>
+
+      <p class="login__texto">
+        Inicia sesión para acceder al panel de administración
+      </p>
+
+      <form id="formulario-login">
+
+        <label for="email">email</label>
+        <input 
+          type="email" 
+          id="email"
+          placeholder="empleado@bastettattoo.com"
+          required
+        >
+
+        <div class="login__fila">
+          <label for="password">Contraseña</label>
+          <a href="#">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <input 
+          type="password" 
+          id="password"
+          required
+        >
+
+        <label class="login__recordar">
+          <input type="checkbox">
+          Recordar sesión en este dispositivo
+        </label>
+
+        <p id="mensaje-error"></p>
+
+        <button type="submit">Acceder al Dashboard</button>
+
+      </form>
+
+      <div class="login__ayuda">
+        ¿No tienes una cuenta? <a href="#">Contacta a Soporte</a>
+      </div>
+
+    </section>
+
+    <footer>
+      © 2026 Gestión Empleados by Andrea Pérez González
+    </footer>
+
+  </main>
+
+  <script type="module" src="./src/js/login.js"></script>
+</body>
+</html>
