@@ -1,25 +1,9 @@
-// Necesito coger el formulario
-const formulario = document.querySelector("#formulario-login");
-
-// Necesito coger los campos
-const email = document.querySelector("#email");
-const password = document.querySelector("#password");
-
-// Necesito coger el mensaje de error
-const mensajeError = document.querySelector("#mensaje-error");
-
-// Necesito escuchar cuando el usuario pulse Acceder
-formulario.addEventListener("submit", function (evento) {
-
-  // Evito que la página se recargue
-  evento.preventDefault();
+// Necesito comprobar si el login es correcto
+export function validarLogin(email, password) {
 
   // Compruebo que los campos no estén vacíos
-  if (email.value === "" || password.value === "") {
-
-    mensajeError.textContent = "Debes rellenar todos los campos";
-
-    return;
+  if (email === "" || password === "") {
+    return "Debes rellenar todos los campos";
   }
 
   // Usuario de prueba
@@ -28,17 +12,36 @@ formulario.addEventListener("submit", function (evento) {
 
   // Compruebo si los datos son correctos
   if (
-    email.value === emailCorrecto &&
-    password.value === passwordCorrecta
+    email === emailCorrecto &&
+    password === passwordCorrecta
   ) {
-
-    window.location.href = "../../dashboard.html";
-
-  } else {
-
-    mensajeError.textContent =
-      "Email o contraseña incorrectos";
-
+    return "OK";
   }
 
-});
+  // Si los datos no son correctos
+  return "Email o contraseña incorrectos";
+}
+
+if (typeof document !== "undefined") {
+
+  const formulario = document.querySelector("#formulario-login");
+  const mensajeError = document.querySelector("#mensaje-error");
+
+  formulario.addEventListener("submit", (evento) => {
+
+    evento.preventDefault();
+
+    const email = document.querySelector("#email").value;
+    const password = document.querySelector("#password").value;
+
+    const resultado = validarLogin(email, password);
+
+    if (resultado === "OK") {
+      window.location.href = "dashboard.html";
+    } else {
+      mensajeError.textContent = resultado;
+    }
+
+  });
+
+}
