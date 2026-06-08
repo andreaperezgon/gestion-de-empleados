@@ -1,59 +1,50 @@
 // Necesito comprobar si el login es correcto
-export function validarLogin(email, password) {
+export async function validarLogin(email, password) {
 
   // Compruebo que los campos no estén vacíos
   if (email === "" || password === "") {
     return "Debes rellenar todos los campos";
   }
 
-  // Usuario de prueba
-  const emailCorrecto = "andrea@bastettattoo.com";
-  const passwordCorrecta = "1234";
+  // Leo el archivo empleados.json
+  const respuesta = await fetch("./empleados.json");
 
-  // Compruebo si los datos son correctos
-  if (
-    email === emailCorrecto &&
-    password === passwordCorrecta
-  ) {
+  // Convierto la respuesta en datos de JavaScript
+  const empleados = await respuesta.json();
+
+  // Busco si existe un empleado con ese email y esa contraseña
+  const empleadoEncontrado = empleados.find((empleado) => {
+    return empleado.usuario === email && empleado.password === password;
+  });
+
+  // Si lo encuentra, el login es correcto
+  if (empleadoEncontrado) {
     return "OK";
   }
 
-  // Si los datos no son correctos
+  // Si no lo encuentra, los datos están mal
   return "Email o contraseña incorrectos";
 }
 
 // Esta parte solo se ejecuta en el navegador
 if (typeof document !== "undefined") {
 
-  // Necesito coger el formulario
   const formulario = document.querySelector("#formulario-login");
-
-  // Necesito coger el mensaje de error
   const mensajeError = document.querySelector("#mensaje-error");
 
-  // Necesito escuchar cuando el usuario pulse Acceder
-  formulario.addEventListener("submit", (evento) => {
+  formulario.addEventListener("submit", async (evento) => {
 
-    // Evito que la página se recargue
     evento.preventDefault();
 
-    // Cojo lo que escribió el usuario
     const email = document.querySelector("#email").value;
     const password = document.querySelector("#password").value;
 
-    // Compruebo los datos
-    const resultado = validarLogin(email, password);
+    const resultado = await validarLogin(email, password);
 
-    // Si el login es correcto
     if (resultado === "OK") {
-
       window.location.href = "dashboard.html";
-
     } else {
-
-      // Muestro el error
       mensajeError.textContent = resultado;
-
     }
 
   });

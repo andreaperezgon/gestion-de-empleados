@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title> Empleados BASTET TATTOO| Login</title>
+  <title>Empleados BASTET TATTOO | Login</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="./src/estilos/login.css">
+  <link rel="stylesheet" href="./src/estilos/login.css">
 </head>
 
 <body>
@@ -20,9 +20,11 @@
 
     <section class="login__tarjeta">
 
-      <div class="login__icono"><img src="./src/imagenes/logo.jpg" alt="Logo Empleados bastettattoo"></div>
+      <div class="login__icono">
+        <img src="./src/imagenes/logo.jpg" alt="Logo Empleados Bastet Tattoo">
+      </div>
 
-      <h1>Empleados </h1>
+      <h1>Empleados</h1>
 
       <p class="login__texto">
         Inicia sesión para acceder al panel de administración
@@ -30,11 +32,12 @@
 
       <form id="formulario-login">
 
-        <label for="email">email</label>
+        <label for="usuario">email</label>
+        
         <input 
           type="email" 
           id="email"
-          placeholder="empleado@bastettattoo.com"
+          placeholder="example@bastettattoo.com"
           required
         >
 
@@ -46,11 +49,12 @@
         <input 
           type="password" 
           id="password"
+          placeholder="*******"
           required
         >
 
         <label class="login__recordar">
-          <input type="checkbox">
+          <input type="checkbox" id="recordar">
           Recordar sesión en este dispositivo
         </label>
 
@@ -61,7 +65,7 @@
       </form>
 
       <div class="login__ayuda">
-        ¿No tienes una cuenta? <a href="#">Contacta a Soporte</a>
+        ¿No tienes una cuenta? <a href="#">Contacta a soporte</a>
       </div>
 
     </section>

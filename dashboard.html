@@ -1,11 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dashboard | Bastet Tattoo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./src/estilos/dashboard.css">
 </head>
+
 <body>
-    
+
+  <header class="dashboard-header">
+
+    <div class="dashboard-header__marca">
+      <img src="./src/imagenes/logo.jpg" alt="Logo Bastet Tattoo">
+      <div>
+        <p>Panel interno</p>
+        <h1>BASTET TATTOO</h1>
+      </div>
+    </div>
+
+    <button id="btnLogout" class="dashboard-header__boton">
+      Cerrar sesión
+    </button>
+
+  </header>
+
+  <main class="dashboard">
+
+    <section class="dashboard__bienvenida">
+
+      <div>
+        <p class="dashboard__subtitulo">Gestión de empleados</p>
+        <h2>Bienvenida, Andrea 👋</h2>
+        <p>
+          Desde este panel puedes consultar el equipo del estudio y sus puestos dentro de la empresa.
+        </p>
+      </div>
+
+      <div class="dashboard__resumen">
+        <span id="total-empleados">5</span>
+        <p>empleados activos</p>
+      </div>
+
+    </section>
+
+    <section class="empleados">
+
+      <div class="empleados__cabecera">
+        <div>
+          <p class="dashboard__subtitulo">Equipo</p>
+          <h2>Empleados</h2>
+        </div>
+
+        <button class="empleados__boton">
+          Añadir empleado
+        </button>
+      </div>
+
+      <div id="lista-empleados" class="empleados__grid">
+
+        <!-- Aquí JavaScript pintará las 5 tarjetas -->
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script type="module" src="./src/js/dashboard.js"></script>
+
 </body>
 </html>
